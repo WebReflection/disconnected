@@ -22,14 +22,15 @@
   </style>
   <!--[if IE 8]><script src="https://unpkg.com/ie8"></script><![endif]-->
   <script>try{new Event('!')}catch(error){document.write('<script src="https://unpkg.com/dom4"><\x2fscript>')}</script>
-  <script>this.WeakSet||(this.WeakSet=(function(C){
-    var p=function(){this.$=['__',Math.random(),C++,'__'].join('ws')}.prototype;
+  <script>this.WeakSet||(this.WeakSet=(function(){
+    /*! (c) Andrea Giammarchi */
+    var C=0,p=function(){this.$=['__',Math.random(),C++,'__'].join('ws')}.prototype;
     p.add=function(O){if(!this.has(O))Object.defineProperty(O,this.$,{value:true,configurable:true});return this};
     p.has=function(O){return this.hasOwnProperty.call(O,this.$)};
     p['delete']=function(O){return delete O[this.$]};
     return p.constructor;
-  }(0)));</script>
-  <script defer src="../index.js"></script>
+  }()));</script>
+  <script defer src="../min.js"></script>
   <script>
   this.onload = function () {
     var observe = disconnected({

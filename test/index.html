@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>disconnected</title>
+  <style>
+  .main, .footer {
+    display: block;
+    padding: 4px;
+    color: black;
+    font-family: sans-serif;
+  }
+  .main {
+    background-color: #eef;
+  }
+  .footer {
+    background-color: #efe;
+    font-size: 0.8em;
+  }
+  </style>
+  <!--[if IE 8]><script src="https://unpkg.com/ie8"></script><![endif]-->
+  <script>try{new Event('!')}catch(error){document.write('<script src="https://unpkg.com/dom4"><\x2fscript>')}</script>
+  <script>this.WeakSet||(this.WeakSet=(function(C){
+    var p=function(){this.$=['__',Math.random(),C++,'__'].join('ws')}.prototype;
+    p.add=function(O){if(!this.has(O))Object.defineProperty(O,this.$,{value:true,configurable:true});return this};
+    p.has=function(O){return this.hasOwnProperty.call(O,this.$)};
+    p['delete']=function(O){return delete O[this.$]};
+    return p.constructor;
+  }(0)));</script>
+  <script defer src="../index.js"></script>
+  <script>
+  this.onload = function () {
+    var observe = disconnected({
+      Event: window.Event,
+      WeakSet: window.WeakSet
+    });
+    var main = document.querySelector('.main');
+    var footer = document.querySelector('.footer');
+    var divs = main.getElementsByTagName('div');
+    var first = divs[0];
+    var second = divs[1];
+    observe(first).addEventListener('connected', write, false);
+    first.addEventListener('disconnected', write, false);
+    observe(second).addEventListener('connected', write, false);
+    second.addEventListener('disconnected', write, false);
+    main.removeChild(first);
+    setTimeout(
+      function () {
+        main.appendChild(first);
+        setTimeout(
+          function () {
+            main.appendChild(second);
+          },
+          250
+        );
+      },
+      250
+    );
+    function write(event) {
+      footer.appendChild(
+        document.createElement('div')
+      ).textContent = event.type + ': ' + event.currentTarget.outerHTML;
+    }
+  };
+  </script>
+</head>
+<body>
+  <div class="main">
+    <div>first</div>
+    <div>second</div>
+  </div>
+  <div class="footer">
+  </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "disconnected",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run cjs && npm run esm && npm run min && npm run size",
+    "cjs": "cp index.js cjs/ && echo 'module.exports = disconnected;' >> cjs/index.js",
+    "esm": "cp index.js esm/ && echo 'export default disconnected;' >> esm/index.js",
+    "min": "uglifyjs index.js --support-ie8 --comments=/^!/ -c -m -o min.js",
+    "size": "cat index.js | wc -c && cat min.js | wc -c && gzip -c9 min.js | wc -c && cat min.js | brotli | wc -c"
+  },
+  "author": "Andrea Giammarchi",
+  "license": "ISC",
+  "devDependencies": {
+    "uglify-js": "^2.8.29"
+  }
+}

@@ -52,7 +52,11 @@ function disconnected(poly) {'use strict';
     }
     function changes(records) {
       dispatched = new Tracker;
-      for (var record, i = 0, length = records.length; i < length; i++) {
+      for (var
+        record,
+        length = records.length,
+        i = 0; i < length; i++
+      ) {
         record = records[i];
         dispatchAll(record.removedNodes, DISCONNECTED, CONNECTED);
         dispatchAll(record.addedNodes, CONNECTED, DISCONNECTED);
@@ -63,12 +67,11 @@ function disconnected(poly) {'use strict';
       for (var
         node,
         event = new Event(type),
-        i = 0, length = nodes.length; i < length; i++
-      ) {
-        node = nodes[i];
-        if (node.nodeType === 1)
-          dispatchTarget(node, event, type, counter);
-      }
+        length = nodes.length,
+        i = 0; i < length;
+        (node = nodes[i++]).nodeType === 1 &&
+        dispatchTarget(node, event, type, counter)
+      );
     }
     function dispatchTarget(node, event, type, counter) {
       if (observer.has(node) && !dispatched[type].has(node)) {
@@ -78,10 +81,10 @@ function disconnected(poly) {'use strict';
       }
       for (var
         children = node.children,
-        i = 0, length = children.length; i < length; i++
-      ) {
-        dispatchTarget(children[i], event, type, counter);
-      }
+        length = children.length,
+        i = 0; i < length;
+        dispatchTarget(children[i++], event, type, counter)
+      );
     }
     function Tracker() {
       this[CONNECTED] = new WeakSet;

@@ -78,6 +78,19 @@ function disconnected(poly) {'use strict';
         dispatched[counter].delete(node);
         dispatched[type].add(node);
         node.dispatchEvent(event);
+        /*
+        // The event is not bubbling (perf reason: should it?),
+        // hence there's no way to know if
+        // stop/Immediate/Propagation() was called.
+        // Should DOM Level 0 work at all?
+        // I say it's a YAGNI case for the time being,
+        // and easy to implement in user-land.
+        if (!event.cancelBubble) {
+          var fn = node['on' + type];
+          if (fn)
+            fn.call(node, event);
+        }
+        */
       }
       for (var
         children = node.children,

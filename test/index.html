@@ -64,8 +64,20 @@
         document.createElement('div')
       ).textContent = event.type + ': ' + event.currentTarget.outerHTML;
     }
+
+    // brings in DOM Level 0 like event
+    withLevel0('connected');
+    withLevel0('disconnected');
+    setTimeout(function () {
+      var div = observe(document.createElement('div'));
+      div.onconnected = function () {
+        div.textContent = 'Level 0';
+      };
+      document.body.appendChild(div);
+    }, 1000);
   };
   </script>
+  <script src="https://unpkg.com/with-level-0" defer></script>
 </head>
 <body>
   <div class="main">

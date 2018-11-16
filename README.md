@@ -1,6 +1,8 @@
 # disconnected
 
-Enables `connected` and `disconnected` element's listeners.
+In less than 0.5K, it enables `connected` and `disconnected` element's listeners to [hyperHTML](https://github.com/WebReflection/hyperHTML#hyperhtml), but it can also be used with any other library/vanilla JS.
+
+The only optional dependencies it has are constructable `Event` and the `WeakSet`. Both must be passed along as configuration object, and polyfills might be needed only for legacy browsers.
 
 ```js
 // requires both modern Event and WeakSet
@@ -20,11 +22,11 @@ observe(topElement);
 observe(anyElement);
 ```
 
-The module is compatible with every browser, as long as usable `Event` and `WeakSet` are provided.
 
 ### Compatibility
 
-Even IE9.
+[Even IE9](https://webreflection.github.io/disconnected/test/), as long as a usable `Event` and `WeakSet` are provided.
+
 
 ### DOM Level 0 Like events ?
 

@@ -25,6 +25,16 @@ function disconnected(poly) {'use strict';
     catch(o_O) {
       var timer = 0;
       var records = [];
+      var reschedule = function (record) {
+        records.push(record);
+        clearTimeout(timer);
+        timer = setTimeout(
+          function () {
+            changes(records.splice(timer = 0, records.length));
+          },
+          0
+        );
+      };
       document.addEventListener(
         'DOMNodeRemoved',
         function (event) {
@@ -39,16 +49,6 @@ function disconnected(poly) {'use strict';
         },
         true
       );
-      function reschedule(record) {
-        records.push(record);
-        clearTimeout(timer);
-        timer = setTimeout(
-          function () {
-            changes(records.splice(timer = 0, records.length));
-          },
-          0
-        );
-      }
     }
     function changes(records) {
       dispatched = new Tracker;

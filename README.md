@@ -28,6 +28,11 @@ observe(anyElement);
 [Even IE9](https://webreflection.github.io/disconnected/test/), as long as a usable `Event` and `WeakSet` are provided.
 
 
+### What about `attributechanged` ?
+
+You [got it](https://github.com/WebReflection/attributechanged), sharing same API, needing same `Event` poly, if necessary.
+
+
 ### DOM Level 0 Like events ?
 
 Using [with-level-0](https://github.com/WebReflection/with-level-0) would make it possible to have `el.onconnected = ...` simplification too.

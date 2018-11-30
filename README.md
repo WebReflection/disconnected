@@ -1,6 +1,6 @@
 # disconnected
 
-[![Build Status](https://travis-ci.com/WebReflection/disconnected.svg?branch=master)](https://travis-ci.com/WebReflection/disconnected) ![WebReflection status](https://offline.report/status/webreflection.svg)
+[![Build Status](https://travis-ci.com/WebReflection/disconnected.svg?branch=master)](https://travis-ci.com/WebReflection/disconnected) [![Greenkeeper badge](https://badges.greenkeeper.io/WebReflection/disconnected.svg)](https://greenkeeper.io/) ![WebReflection status](https://offline.report/status/webreflection.svg)
 
 In less than 0.5K, it enables `connected` and `disconnected` element's listeners in [hyperHTML](https://github.com/WebReflection/hyperHTML#hyperhtml), but it can also be used with any other library/vanilla JS.
 

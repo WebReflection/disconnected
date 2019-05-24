@@ -1,6 +1,6 @@
 {
   "name": "disconnected",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Enables `connected` and `disconnected` element's listeners.",
   "main": "cjs/index.js",
   "module": "esm/index.js",

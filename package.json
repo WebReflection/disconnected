@@ -15,7 +15,7 @@
   "author": "Andrea Giammarchi",
   "license": "ISC",
   "devDependencies": {
-    "uglify-js": "^3.6.4"
+    "uglify-js": "^3.6.5"
   },
   "repository": {
     "type": "git",
